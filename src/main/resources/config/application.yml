@@ -9,6 +9,8 @@ spring:
     url: ${URL_DATABASE}
     username: ${USER_DATABASE}
     password: ${PASSWORD_DATABASE}
+    hikari:
+      maximum-pool-size: 4
   jpa:
     hibernate:
       naming:
@@ -16,4 +18,14 @@ spring:
 
 logging:
   config: classpath:logging/logback.xml
+
+
+aws:
+  credentials:
+    accessKey: ${AWS_ACCESS_KEY}
+    secretKey: ${AWS_SECRET_KEY}
+  cognito:
+    region: ${AWS_COGNITO_REGION}
+    cliendId: ${AWS_COGNITO_CLIEND_ID}
+    userPoolId : ${AWS_COGNITO_USER_POOL_ID}
 

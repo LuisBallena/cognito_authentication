@@ -1,5 +1,6 @@
 package com.scrap.cognito.api;
 
+import com.scrap.cognito.api.dto.ConfirmDTO;
 import com.scrap.cognito.api.dto.UserDTO;
 import com.scrap.cognito.service.UserService;
 import javax.validation.Valid;
@@ -24,9 +25,15 @@ public class UserAuthenticateApi {
     private UserService userService;
 
     @PostMapping("/signUp")
-    public ResponseEntity signIn(@Valid @RequestBody UserDTO userDTO) {
+    public ResponseEntity signUp(@Valid @RequestBody UserDTO userDTO) {
         userService.addUser(userDTO);
         return new ResponseEntity(HttpStatus.ACCEPTED);
+    }
+
+    @PostMapping("/confirm")
+    public ResponseEntity confirm(@Valid @RequestBody ConfirmDTO confirmDTO) {
+        userService.confirmUser(confirmDTO);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
 }

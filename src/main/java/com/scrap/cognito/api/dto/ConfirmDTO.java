@@ -1,28 +1,23 @@
 package com.scrap.cognito.api.dto;
 
-import java.io.Serializable;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 /**
- * UserDTO.
+ * ConfirmDTO.
  *
  * @author Luis Alonso Ballena Garcia
  */
 @Getter
 @Setter
-public class UserDTO implements Serializable {
+public class ConfirmDTO {
 
-    @NotBlank
-    private String name;
-    @NotBlank
-    private String lastName;
     @NotBlank
     private String email;
     @NotBlank
-    private String password;
+    private String code;
 
-    public UserDTO() {
+    public ConfirmDTO() {
     }
 }
